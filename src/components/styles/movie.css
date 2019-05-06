@@ -1,0 +1,26 @@
+body{
+    background-color: #D5F8FE;
+}
+
+.Movie {
+    display: inline-block;
+    width: 30%; 
+    margin: 20px 10px;
+    height: 200px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #6DE2F5;
+    box-shadow: -10px 15px 10px #6BC4D3;
+}
+
+.Movie_title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+.Movie_container{
+    padding: 10px;
+    margin: 5%;
+    text-align: center;
+}

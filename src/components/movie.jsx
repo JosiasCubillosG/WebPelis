@@ -1,4 +1,5 @@
 import React,{Component} from "react"
+import "./styles/movie.css";
 
 
 class Movie extends Component {
@@ -13,12 +14,15 @@ class Movie extends Component {
         }
 
         return(
-            <div>
+            <div className="Movie_container">
+                <h1 className="Movie_title">WebPelis</h1>
                 {this.props.data.map((movie)=>{
                     return(
-                        <div key={movie.id}>
-                            <h1>{movie.title}</h1>
-                            <p>{movie.description}</p>
+                        <div className="Movie"  key={movie.id}>
+                            <h3>{movie.title}</h3>
+                            <p>Director: {movie.director}</p>
+                            <p>Age: {movie.release_date}</p>
+                            <p>Score: {movie.rt_score}</p>
                         </div>
                     )
                 })}
