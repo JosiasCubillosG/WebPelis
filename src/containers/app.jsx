@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import Movie from "../components/movie";
+import Movies from "../components/movies";
 
 
 class App extends Component {
@@ -11,7 +11,6 @@ class App extends Component {
     }
 
     componentDidMount(){
-        console.log("componendidmount")
         this.fetchData();
     }
 
@@ -36,7 +35,6 @@ class App extends Component {
     }
 
     render(){
-        {console.log("Render")}
         if(this.state.loading){
             return "Loading...";
         }
@@ -46,7 +44,7 @@ class App extends Component {
         }
         return(
             <div>
-                <Movie data={this.state.data} />
+                <Movies movies={this.state.data} />
             </div>
         )
     }
