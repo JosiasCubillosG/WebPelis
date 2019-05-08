@@ -1,4 +1,5 @@
 import React from "react";
+import "../components/styles/movies.css";
 import Movie from "../components/movie";
 
 
@@ -31,6 +32,10 @@ class App extends React.Component {
         }
     }
 
+    renderMovies = () => {
+        return this.state.movieData.map((movie) => <Movie movieData={movie} />);
+    }
+
     render(){
         if (this.state.loading){
             return "Loading...";
@@ -39,8 +44,12 @@ class App extends React.Component {
         }
 
         return(
-            <Movie movieData={this.state.movieData} />
-        );
+            <div>
+                <h1 className="movie-title">WebPelis</h1>
+                {this.renderMovies()}
+            </div>
+        )
+        
     }
 }
 
