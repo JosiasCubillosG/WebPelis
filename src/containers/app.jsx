@@ -1,13 +1,13 @@
-import React,{Component} from "react";
-import Movies from "../components/movies";
+import React from "react";
+import Movie from "../components/movie";
 
 
-class App extends Component {
+class App extends React.Component {
 
     state = {
         loading: true,
         error: null,
-        data: undefined
+        movieData: undefined
     }
 
     componentDidMount(){
@@ -15,17 +15,14 @@ class App extends Component {
     }
 
     fetchData = async(e) => {
-        this.setState({
-            loading:true,
-            error: null
-        })
         try{
-            const response = await fetch("https://ghibliapi.herokuapp.com/films");
-            const data = await response.json();
-            this.setState({
-                loading: false,
-                data
-            })
+            fetch('https://ghibliapi.herokuapp.com/films')
+                .then(response => {
+                    response.json()
+                    .then( movieData => {
+                        this.setState({ loading: false, movieData });
+                    })
+                });
         }catch(error){
             this.setState({
                 loading: false,
@@ -35,18 +32,15 @@ class App extends Component {
     }
 
     render(){
-        if(this.state.loading){
+        if (this.state.loading){
             return "Loading...";
+        }else if (this.state.error){
+            return `${this.state.error}`;
         }
 
-        if(this.state.error){
-            return `${this.state.error}`
-        }
         return(
-            <div>
-                <Movies movies={this.state.data} />
-            </div>
-        )
+            <Movie movieData={this.state.movieData} />
+        );
     }
 }
 

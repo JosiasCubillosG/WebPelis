@@ -1,11 +1,11 @@
-import React,{Component} from "react"
+import React from "react"
 import "./styles/movies.css";
 
 
-class Movies extends Component {
+class Movie extends React.Component {
 
     render(){
-        if(this.props.movies.length === 0){
+        if(this.props.movieData.length === 0){
             return(
                 <div>
                     <h3>No Movies were found</h3>
@@ -16,7 +16,7 @@ class Movies extends Component {
         return(
             <div className="movie-container">
                 <h1 className="movie-title">WebPelis</h1>
-                {this.props.movies.map((movie)=>{
+                {this.props.movieData.map((movie)=>{
                     return(
                         <div className="movie"  key={movie.id}>
                             <h3>{movie.title}</h3>
@@ -32,4 +32,4 @@ class Movies extends Component {
 }
 
 
-export default Movies;
+export default Movie;
