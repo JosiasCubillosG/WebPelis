@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import App from "./containers/app"
+import App from "./views/app/app";
 import "babel-polyfill"
 
 const app = document.getElementById("app")

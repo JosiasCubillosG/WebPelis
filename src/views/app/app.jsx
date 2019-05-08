@@ -1,6 +1,6 @@
 import React from "react";
-import "../components/styles/movies.css";
-import Movie from "../components/movie";
+import "./app.css";
+import Movie from "../../components/movie/movie";
 
 
 class App extends React.Component {
