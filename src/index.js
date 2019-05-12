@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import App from "./views/app/app";
 import "babel-polyfill"
+import Routes from "./components/routes/routes";
 
 const app = document.getElementById("app")
-ReactDOM.render(<App/>,app)
+ReactDOM.render(<Routes/>,app)

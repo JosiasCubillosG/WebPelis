@@ -33,7 +33,7 @@ class App extends React.Component {
     }
 
     renderMovies = () => {
-        return this.state.movieData.map((movie) => <Movie movieData={movie} />);
+        return this.state.movieData.map((movie) => <Movie key={movie.id} movieData={movie} />);
     }
 
     render(){
@@ -44,7 +44,7 @@ class App extends React.Component {
         }
 
         return(
-            <div>
+            <div  >
                 <h1 className="movie-title">WebPelis</h1>
                 {this.renderMovies()}
             </div>
