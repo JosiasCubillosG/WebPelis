@@ -1,6 +1,8 @@
 import React from "react";
-import "./app.css";
 import Movie from "../../components/movie/movie";
+import ModalMovieContainer from "../modalMovie/modalMovieContainer";
+import ModalMovie from "../../components/modalMovie/modalMovie";
+import "./movies.css";
 
 
 class App extends React.Component {
@@ -8,7 +10,8 @@ class App extends React.Component {
     state = {
         loading: true,
         error: null,
-        movieData: undefined
+        movieData: undefined,
+        modalMovie: false,
     }
 
     componentDidMount(){
@@ -33,7 +36,19 @@ class App extends React.Component {
     }
 
     renderMovies = () => {
-        return this.state.movieData.map((movie) => <Movie key={movie.id} movieData={movie} />);
+        return this.state.movieData.map((movie) => <Movie handleClick={this.openModalMovie} key={movie.id} movieData={movie} />);
+    }
+
+    openModalMovie = () => {
+        this.setState({
+            modalMovie: true,
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            modalMovie: false,
+        })
     }
 
     render(){
@@ -44,9 +59,17 @@ class App extends React.Component {
         }
 
         return(
-            <div  >
-                <h1 className="movie-title">WebPelis</h1>
-                {this.renderMovies()}
+            <div className="movie-container" >
+                <h3 className="movie-title">Movies</h3>
+                {
+                    this.renderMovies()
+                }
+                {
+                    this.state.modalMovie &&
+                    <ModalMovieContainer>
+                        <ModalMovie handleClick={this.closeModal} /> 
+                    </ModalMovieContainer>
+                }
             </div>
         )
         

@@ -1,15 +1,13 @@
 import React from "react";
-import "./movies.css";
+import "./movie.css";
 
-const Movie = ({movieData}) => {
+const Movie = (props) => {
     return(
-        <div className="movie-container">
-            <div className="movie" >
-                <h3>{movieData.title}</h3>
-                <p>Director: {movieData.director}</p>
-                <p>Age: {movieData.release_date}</p>
-                <p>Score: {movieData.rt_score}</p>
-            </div>
+        <div onClick={props.handleClick} className="movie" >
+            <h3>{props.movieData.title}</h3>
+            <p>Director: {props.movieData.director}</p>
+            <p>Age: {props.movieData.release_date}</p>
+            <p>Score: {props.movieData.rt_score}</p>
         </div>
     );
 }
